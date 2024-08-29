@@ -5,16 +5,16 @@ plate numbers from users.
 
 ## Examples
 
-<div style="display: inline-block; text-align: center; white-space: nowrap; margin: 10px;">
-  <img src="assets/example1.png" alt="Default usage example" style="max-width: 50%; height: auto;"/>
+<div style="display: inline-block; text-align: center; margin: 10px; width: calc(50% - 20px);">
+  <img src="assets/example1.png" alt="Default usage example" style="max-width: 100%; height: auto;"/>
   <br/>
-  <small>Default usage example</small>
+  <small>Default usage example.</small>
 </div>
 
-<div style="display: inline-block; text-align: center; white-space: nowrap; margin: 10px;">
-  <img src="assets/example3.gif" alt="Real project implementation" style="max-width: 10%; height: auto;"/>
+<div style="display: inline-block; text-align: center; margin: 10px; width: calc(50% - 20px);">
+  <img src="assets/example3.gif" alt="Real project implementation" style="max-width: 100%; height: auto;"/>
   <br/>
-  <small>Real project implementation</small>
+  <small>Real project implementation.</small>
 </div>
 
 ## Features
