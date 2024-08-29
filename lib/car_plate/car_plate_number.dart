@@ -6,10 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/plate_card_bloc.dart';
 import '../constants.dart';
 import '../tools.dart';
-import 'letter_picker.dart';
 import '../widgets/plate_items.dart';
 import '../widgets/remove_button.dart';
 import '../widgets/special_clipper.dart';
+import 'letter_picker.dart';
 
 class CarPlateNumber extends StatefulWidget {
   const CarPlateNumber({
@@ -22,7 +22,6 @@ class CarPlateNumber extends StatefulWidget {
     this.countryName,
     this.removeIcon,
     this.chooseLetterTextStyle,
-    required this.bloc,
     this.itemBorderRadius,
     this.numberTextStyle,
     this.letterTextStyle,
@@ -42,8 +41,6 @@ class CarPlateNumber extends StatefulWidget {
   final BorderRadius? itemBorderRadius;
   final VoidCallback? onChooseLetter;
 
-  final PlateCardBloc bloc;
-
   @override
   State<CarPlateNumber> createState() => _CarPlateNumberState();
 }
@@ -55,7 +52,8 @@ class _CarPlateNumberState extends State<CarPlateNumber> {
   @override
   void initState() {
     super.initState();
-    final plateNumber = widget.bloc.state.plateNumber;
+    final plateNumber =
+        BlocProvider.of<PlateCardBloc>(context).state.plateNumber;
     final valueTypes = plateNumber.valueTypes;
     for (int i = 0; i < valueTypes.length; i++) {
       final valueType = valueTypes[i];

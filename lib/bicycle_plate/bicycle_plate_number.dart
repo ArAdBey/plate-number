@@ -15,7 +15,6 @@ class BicyclePlateNumber extends StatefulWidget {
     required this.backgroundColor,
     this.spacingScale = 6,
     this.removeIcon,
-    required this.bloc,
     this.textStyle,
     this.itemBorderRadius,
   });
@@ -28,8 +27,6 @@ class BicyclePlateNumber extends StatefulWidget {
   final TextStyle? textStyle;
   final BorderRadius? itemBorderRadius;
 
-  final PlateCardBloc bloc;
-
   @override
   State<BicyclePlateNumber> createState() => _BicyclePlateNumberState();
 }
@@ -41,7 +38,8 @@ class _BicyclePlateNumberState extends State<BicyclePlateNumber> {
   @override
   void initState() {
     super.initState();
-    final plateNumber = widget.bloc.state.plateNumber;
+    final plateNumber =
+        BlocProvider.of<PlateCardBloc>(context).state.plateNumber;
     final valueTypes = plateNumber.valueTypes;
     for (int i = 0; i < valueTypes.length; i++) {
       final controller = TextEditingController();
