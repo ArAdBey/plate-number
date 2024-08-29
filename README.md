@@ -8,12 +8,12 @@ plate numbers from users.
 <table style="border-collapse: collapse; width: 100%; margin: 0 auto;">
   <tr>
     <td style="text-align: center; padding: 10px; border: none;">
-      <img src="assets/example1.png" alt="Default usage example" style="max-width: 100%; height: auto;"/>
+      <img src="assets/example2.gif" alt="Default usage example" style="max-width: 100%; height: auto;"/>
       <br/>
       <small>Default usage example</small>
     </td>
     <td style="text-align: center; padding: 10px; border: none;">
-      <img src="assets/example3.gif" alt="Real project implementation" style="max-width: 100%; height: auto;"/>
+      <img src="assets/example1.png" alt="Real project implementation" style="max-width: 100%; height: auto;"/>
       <br/>
       <small>Real project implementation</small>
     </td>

@@ -1,6 +1,6 @@
 name: plate_number
 description: " A Flutter package for capturing and displaying vehicle plate numbers."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/ArAdBey/plate-number
 
 environment:
