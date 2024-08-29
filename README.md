@@ -8,13 +8,13 @@ plate numbers from users.
 
 
 <div style="display: inline-block; text-align: center; margin: 10px;">
-  <img src="assets/example1.png" alt="Default usage example" style="max-width: 100%; height: auto;"/>
+  <img src="assets/example1.png" alt="Default usage example" style="max-width: 50%; height: auto;"/>
   <br/>
   <small>Default usage example.</small>
 </div>
 
 <div style="display: inline-block; text-align: center; margin: 10px;">
-  <img src="assets/example3.gif" alt="Real project implementation" style="max-width: 100%; height: auto;"/>
+  <img src="assets/example3.gif" alt="Real project implementation" style="max-width: 50%; height: auto;"/>
   <br/>
   <small>Real project implementation.</small>
 </div>
