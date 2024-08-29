@@ -5,13 +5,20 @@ plate numbers from users.
 
 ## Examples
 
-### Default Usage
-
-![Default usage example](assets/example1.png)
-
-### Real Project Implementation
-
-![Real project implementation](assets/example3.gif)
+<table>
+  <tr>
+    <td>
+      <img src="assets/example1.png" alt="Default usage example" width="200"/>
+      <br/>
+      <small>Default usage example.</small>
+    </td>
+    <td>
+      <img src="assets/example3.gif" alt="Real project implementation" width="200"/>
+      <br/>
+      <small>Real project implementation.</small>
+    </td>
+  </tr>
+</table>
 
 ## Features
 
