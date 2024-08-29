@@ -16,7 +16,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  plate_number: ^1.0.0
+  plate_number: ^0.0.1
 ```
 
 Then run the following command to install the package:
@@ -111,17 +111,13 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class PlateTypeSelector extends StatefulWidget {
-  const PlateTypeSelector({super.key, required this.onValueChanged, required this.selectedType});
+class PlateTypeSelector extends StatelessWidget {
+  const PlateTypeSelector(
+      {super.key, required this.onValueChanged, required this.selectedType});
 
   final ValueChanged<PlateType> onValueChanged;
   final PlateType selectedType;
 
-  @override
-  PlateTypeSelectorState createState() => PlateTypeSelectorState();
-}
-
-class PlateTypeSelectorState extends State<PlateTypeSelector> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -141,8 +137,8 @@ class PlateTypeSelectorState extends State<PlateTypeSelector> {
                 ),
               )
           },
-          onValueChanged: widget.onValueChanged,
-          groupValue: widget.selectedType,
+          onValueChanged: onValueChanged,
+          groupValue: selectedType,
         ),
       ],
     );
