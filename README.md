@@ -5,8 +5,6 @@ plate numbers from users.
 
 ## Examples
 
-
-
 <div style="display: inline-block; text-align: center; margin: 10px;">
   <img src="assets/example1.png" alt="Default usage example" style="max-width: 50%; height: auto;"/>
   <br/>
@@ -18,6 +16,7 @@ plate numbers from users.
   <br/>
   <small>Real project implementation.</small>
 </div>
+
 ## Features
 
 - **Dynamic Spacing**: Adjust spacing between widgets using the `spacingScale` parameter.
