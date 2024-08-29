@@ -4,7 +4,12 @@ A Flutter package that provides a customizable widget for collecting vehicle or 
 plate numbers from users.
 
 ## Examples
-![Example Image 1](assets/example1.png)
+
+### Default Usage
+![Default usage example](assets/example1.png)
+
+### Real Project Implementation
+![Real project implementation](assets/example2.mp4)
 
 ## Features
 
@@ -12,6 +17,7 @@ plate numbers from users.
 - **Custom Widgets**: Option to add custom widgets for letters and removal actions.
 - **Flexible Styling**: Customize text styles for numbers and letters, as well as border radius.
 - **Interactive Letter Selection**: Callback for handling letter selection.
+- **Input Validation**: Prevents the entry of invalid characters such as ".", "-", and " " in numeric text fields.
 
 ## Installation
 
