@@ -61,7 +61,7 @@ class _BicyclePlateNumberState extends State<BicyclePlateNumber> {
         }
         return Padding(
           padding: EdgeInsets.symmetric(
-            vertical: widget.spacingScale * 3,
+            vertical: widget.spacingScale * 2.5,
             horizontal: widget.spacingScale,
           ),
           child: ClipRRect(
