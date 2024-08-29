@@ -1,4 +1,4 @@
-# Plate Number Input Package
+# Plate Number Package
 
 A Flutter package that provides a customizable widget for collecting vehicle or motorcycle license
 plate numbers from users.
@@ -10,12 +10,12 @@ plate numbers from users.
     <td style="text-align: center; padding: 10px; border: none;">
       <img src="assets/example1.png" alt="Default usage example" style="max-width: 100%; height: auto;"/>
       <br/>
-      <small>Default usage example.</small>
+      <small>Default usage example</small>
     </td>
     <td style="text-align: center; padding: 10px; border: none;">
       <img src="assets/example3.gif" alt="Real project implementation" style="max-width: 100%; height: auto;"/>
       <br/>
-      <small>Real project implementation.</small>
+      <small>Real project implementation</small>
     </td>
   </tr>
 </table>
