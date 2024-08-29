@@ -5,20 +5,18 @@ plate numbers from users.
 
 ## Examples
 
-<table>
-  <tr>
-    <td>
-      <img src="assets/example1.png" alt="Default usage example" width="200"/>
-      <br/>
-      <small>Default usage example.</small>
-    </td>
-    <td>
-      <img src="assets/example3.gif" alt="Real project implementation" width="200"/>
-      <br/>
-      <small>Real project implementation.</small>
-    </td>
-  </tr>
-</table>
+<div style="display: flex; justify-content: space-around;">
+  <div style="text-align: center;">
+    <img src="assets/example1.png" alt="Default usage example" width="200"/>
+    <br/>
+    <small>Default usage example.</small>
+  </div>
+  <div style="text-align: center;">
+    <img src="assets/example3.gif" alt="Real project implementation" width="200"/>
+    <br/>
+    <small>Real project implementation.</small>
+  </div>
+</div>
 
 ## Features
 
