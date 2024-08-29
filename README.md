@@ -3,6 +3,9 @@
 A Flutter package that provides a customizable widget for collecting vehicle or motorcycle license
 plate numbers from users.
 
+## Examples
+![Example Image 1](assets/example1.png)
+
 ## Features
 
 - **Dynamic Spacing**: Adjust spacing between widgets using the `spacingScale` parameter.
