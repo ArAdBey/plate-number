@@ -16,7 +16,7 @@ class ShowPlate extends StatelessWidget {
     return BlocBuilder<PlateCardBloc, PlateCardState>(
       builder: (context, state) {
         if (state.plateNumber.isEmpty()) {
-          return emptyPlate ?? const Text('Default Empty Value');
+          return emptyPlate ?? const Text('Default Widget for Empty Plate Value',style: TextStyle(fontSize: 18),);
         }
         if (state.plateType == PlateType.irCar) {
           return IrCarShow(

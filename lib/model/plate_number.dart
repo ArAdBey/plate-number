@@ -23,8 +23,20 @@ enum PlateType {
 
 extension Tool on PlateType {
   String vehicleType() {
-    if (this == PlateType.irBicycle) return 'bicycle';
-    if (this == PlateType.irCar) return 'car';
-    return '';
+    switch (this) {
+      case PlateType.irBicycle:
+        return 'bicycle';
+      case PlateType.irCar:
+        return 'car';
+    }
+  }
+
+  String parseToString() {
+    switch (this) {
+      case PlateType.irBicycle:
+        return 'irBicycle';
+      case PlateType.irCar:
+        return 'irCar';
+    }
   }
 }
