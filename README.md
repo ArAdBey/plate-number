@@ -6,10 +6,12 @@ plate numbers from users.
 ## Examples
 
 ### Default Usage
+
 ![Default usage example](assets/example1.png)
 
 ### Real Project Implementation
-![Real project implementation](assets/example2.mp4)
+
+![Real project implementation](assets/example3.gif)
 
 ## Features
 
@@ -17,7 +19,8 @@ plate numbers from users.
 - **Custom Widgets**: Option to add custom widgets for letters and removal actions.
 - **Flexible Styling**: Customize text styles for numbers and letters, as well as border radius.
 - **Interactive Letter Selection**: Callback for handling letter selection.
-- **Input Validation**: Prevents the entry of invalid characters such as ".", "-", and " " in numeric text fields.
+- **Input Validation**: Prevents the entry of invalid characters such as ".", "-", and " " in
+  numeric text fields.
 
 ## Installation
 
@@ -121,8 +124,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class PlateTypeSelector extends StatelessWidget {
-  const PlateTypeSelector(
-      {super.key, required this.onValueChanged, required this.selectedType});
+  const PlateTypeSelector({super.key, required this.onValueChanged, required this.selectedType});
 
   final ValueChanged<PlateType> onValueChanged;
   final PlateType selectedType;
