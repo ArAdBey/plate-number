@@ -5,7 +5,7 @@ plate numbers from users.
 
 ## Examples
 
-<table style="border-collapse: collapse; width: 100%;">
+<table style="border-collapse: collapse; width: 100%; margin: 0 auto;">
   <tr>
     <td style="text-align: center; padding: 10px; border: none;">
       <img src="assets/example1.png" alt="Default usage example" style="max-width: 100%; height: auto;"/>
