@@ -6,17 +6,17 @@ plate numbers from users.
 ## Examples
 
 
-<div style="display: flex; justify-content: space-around; flex-wrap: nowrap; width: 100%;">
-  <div style="text-align: center; flex: 1; margin: 0 10px;">
-    <img src="assets/example1.png" alt="Default usage example" style="width: 100%; height: auto;"/>
-    <br/>
-    <small>Default usage example.</small>
-  </div>
-  <div style="text-align: center; flex: 1; margin: 0 10px;">
-    <img src="assets/example3.gif" alt="Real project implementation" style="width: 100%; height: auto;"/>
-    <br/>
-    <small>Real project implementation.</small>
-  </div>
+
+<div style="display: inline-block; text-align: center; margin: 10px;">
+  <img src="assets/example1.png" alt="Default usage example" style="max-width: 100%; height: auto;"/>
+  <br/>
+  <small>Default usage example.</small>
+</div>
+
+<div style="display: inline-block; text-align: center; margin: 10px;">
+  <img src="assets/example3.gif" alt="Real project implementation" style="max-width: 100%; height: auto;"/>
+  <br/>
+  <small>Real project implementation.</small>
 </div>
 ## Features
 
