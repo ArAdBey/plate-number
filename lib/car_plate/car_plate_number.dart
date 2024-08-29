@@ -39,7 +39,7 @@ class CarPlateNumber extends StatefulWidget {
   final TextStyle? numberTextStyle;
   final TextStyle? letterTextStyle;
   final BorderRadius? itemBorderRadius;
-  final VoidCallback? onChooseLetter;
+  final void Function(FocusNode? nextFocus)? onChooseLetter;
 
   @override
   State<CarPlateNumber> createState() => _CarPlateNumberState();
@@ -68,6 +68,7 @@ class _CarPlateNumberState extends State<CarPlateNumber> {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<PlateCardBloc>(context);
     return BlocBuilder<PlateCardBloc, PlateCardState>(
       builder: (BuildContext context, PlateCardState state) {
         final plateNumber = state.plateNumber;
@@ -196,12 +197,10 @@ class _CarPlateNumberState extends State<CarPlateNumber> {
                                 controller: controllers[4],
                                 textStyle: widget.numberTextStyle,
                                 onCompleted: () => focusNodes[5].requestFocus(),
-                                onChanged: (value) =>
-                                    BlocProvider.of<PlateCardBloc>(context).add(
-                                        ValueIsChanged(index: 5, value: value)),
-                                onRemoved: () =>
-                                    BlocProvider.of<PlateCardBloc>(context).add(
-                                        ValueIsChanged(index: 5, value: '')),
+                                onChanged: (value) => bloc.add(
+                                    ValueIsChanged(index: 5, value: value)),
+                                onRemoved: () => bloc
+                                    .add(ValueIsChanged(index: 5, value: '')),
                               ),
                               SizedBox(width: widget.spacingScale / 1.5),
                               IntegerPlateItem(
@@ -212,12 +211,10 @@ class _CarPlateNumberState extends State<CarPlateNumber> {
                                 focusNode: focusNodes[3],
                                 controller: controllers[3],
                                 onCompleted: () => focusNodes[4].requestFocus(),
-                                onChanged: (value) =>
-                                    BlocProvider.of<PlateCardBloc>(context).add(
-                                        ValueIsChanged(index: 4, value: value)),
-                                onRemoved: () =>
-                                    BlocProvider.of<PlateCardBloc>(context).add(
-                                        ValueIsChanged(index: 4, value: '')),
+                                onChanged: (value) => bloc.add(
+                                    ValueIsChanged(index: 4, value: value)),
+                                onRemoved: () => bloc
+                                    .add(ValueIsChanged(index: 4, value: '')),
                                 textStyle: widget.numberTextStyle,
                               ),
                               SizedBox(width: widget.spacingScale / 1.5),
@@ -229,13 +226,11 @@ class _CarPlateNumberState extends State<CarPlateNumber> {
                                 focusNode: focusNodes[2],
                                 controller: controllers[2],
                                 onCompleted: () => focusNodes[3].requestFocus(),
-                                onChanged: (value) =>
-                                    BlocProvider.of<PlateCardBloc>(context).add(
-                                        ValueIsChanged(index: 3, value: value)),
+                                onChanged: (value) => bloc.add(
+                                    ValueIsChanged(index: 3, value: value)),
                                 textStyle: widget.numberTextStyle,
-                                onRemoved: () =>
-                                    BlocProvider.of<PlateCardBloc>(context).add(
-                                        ValueIsChanged(index: 3, value: '')),
+                                onRemoved: () => bloc
+                                    .add(ValueIsChanged(index: 3, value: '')),
                               ),
                               SizedBox(width: widget.spacingScale / 1.5),
                               StringPlateItem(
@@ -247,29 +242,35 @@ class _CarPlateNumberState extends State<CarPlateNumber> {
                                 indexInPlateTypes: 2,
                                 activeColor: widget.activeColor,
                                 inactiveColor: widget.inactiveColor,
-                                onPressed: widget.onChooseLetter ??
-                                    () async {
-                                      String selectedValue = '';
-                                      await showModalBottomSheet<String>(
-                                          context: context,
-                                          builder: (builder) {
-                                            return LetterPicker(
-                                              onSelectedItemChanged:
-                                                  (int value) {
-                                                selectedValue =
-                                                    persianCarPlateLetters[
-                                                        value];
-                                              },
-                                            );
-                                          });
-                                      BlocProvider.of<PlateCardBloc>(context)
-                                          .add(
-                                        ValueIsChanged(
-                                          index: 2,
-                                          value: selectedValue,
-                                        ),
-                                      );
-                                    },
+                                onPressed: widget.onChooseLetter != null
+                                    ? () {
+                                        widget.onChooseLetter!(focusNodes[2]);
+                                      }
+                                    : () async {
+                                        String selectedValue = '';
+                                        await showModalBottomSheet<String>(
+                                            context: context,
+                                            builder: (builder) {
+                                              return LetterPicker(
+                                                sizeScale:
+                                                    widget.spacingScale * 16,
+                                                textStyle: widget
+                                                    .chooseLetterTextStyle,
+                                                onSelectedItemChanged:
+                                                    (int value) {
+                                                  selectedValue =
+                                                      persianCarPlateLetters[
+                                                          value];
+                                                },
+                                              );
+                                            });
+                                        bloc.add(
+                                          ValueIsChanged(
+                                            index: 2,
+                                            value: selectedValue,
+                                          ),
+                                        );
+                                      },
                               ),
                               SizedBox(width: widget.spacingScale / 1.5),
                               IntegerPlateItem(
@@ -280,32 +281,36 @@ class _CarPlateNumberState extends State<CarPlateNumber> {
                                 textStyle: widget.numberTextStyle,
                                 focusNode: focusNodes[1],
                                 controller: controllers[1],
-                                onCompleted: widget.onChooseLetter ??
-                                    () async {
-                                      String selectedValue = '';
-                                      await showModalBottomSheet<String>(
-                                          context: context,
-                                          builder: (builder) {
-                                            return LetterPicker(
-                                              onSelectedItemChanged:
-                                                  (int value) {
-                                                selectedValue =
-                                                    persianCarPlateLetters[
-                                                        value];
-                                              },
-                                            );
-                                          });
-                                      BlocProvider.of<PlateCardBloc>(context)
-                                          .add(ValueIsChanged(
-                                              index: 2, value: selectedValue));
-                                      focusNodes[2].requestFocus();
-                                    },
-                                onChanged: (value) =>
-                                    BlocProvider.of<PlateCardBloc>(context).add(
-                                        ValueIsChanged(index: 1, value: value)),
-                                onRemoved: () =>
-                                    BlocProvider.of<PlateCardBloc>(context).add(
-                                        ValueIsChanged(index: 1, value: '')),
+                                onCompleted: widget.onChooseLetter != null
+                                    ? () {
+                                        widget.onChooseLetter!(focusNodes[2]);
+                                      }
+                                    : () async {
+                                        String selectedValue = '';
+                                        await showModalBottomSheet<String>(
+                                            context: context,
+                                            builder: (builder) {
+                                              return LetterPicker(
+                                                sizeScale:
+                                                    widget.spacingScale * 16,
+                                                textStyle: widget
+                                                    .chooseLetterTextStyle,
+                                                onSelectedItemChanged:
+                                                    (int value) {
+                                                  selectedValue =
+                                                      persianCarPlateLetters[
+                                                          value];
+                                                },
+                                              );
+                                            });
+                                        bloc.add(ValueIsChanged(
+                                            index: 2, value: selectedValue));
+                                        focusNodes[2].requestFocus();
+                                      },
+                                onChanged: (value) => bloc.add(
+                                    ValueIsChanged(index: 1, value: value)),
+                                onRemoved: () => bloc
+                                    .add(ValueIsChanged(index: 1, value: '')),
                               ),
                               SizedBox(width: widget.spacingScale / 1.5),
                               IntegerPlateItem(
@@ -317,12 +322,10 @@ class _CarPlateNumberState extends State<CarPlateNumber> {
                                 focusNode: focusNodes[0],
                                 controller: controllers[0],
                                 onCompleted: () => focusNodes[1].requestFocus(),
-                                onChanged: (value) =>
-                                    BlocProvider.of<PlateCardBloc>(context).add(
-                                        ValueIsChanged(index: 0, value: value)),
-                                onRemoved: () =>
-                                    BlocProvider.of<PlateCardBloc>(context).add(
-                                        ValueIsChanged(index: 0, value: '')),
+                                onChanged: (value) => bloc.add(
+                                    ValueIsChanged(index: 0, value: value)),
+                                onRemoved: () => bloc
+                                    .add(ValueIsChanged(index: 0, value: '')),
                               ),
                             ],
                           ),
@@ -336,9 +339,7 @@ class _CarPlateNumberState extends State<CarPlateNumber> {
                                 alignment: Alignment.bottomCenter,
                                 child: RemoveButton(
                                   defaultRemoveIcon: widget.removeIcon,
-                                  onPressed: () =>
-                                      BlocProvider.of<PlateCardBloc>(context)
-                                          .add(RemovePlateCard()),
+                                  onPressed: () => bloc.add(RemovePlateCard()),
                                   activeColor: widget.activeColor,
                                   inactiveColor: widget.inactiveColor,
                                 ),
