@@ -100,43 +100,52 @@ class IntegerPlateItem extends StatelessWidget {
     return SizedBox(
       width: getPlateCardElementWidth(context),
       height: getPlateCardElementHeight(context),
-      child: TextField(
-        controller: controller,
-        style: textStyle,
-        cursorColor: activeColor,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: borderRadius ?? BorderRadius.circular(12),
+      child: Theme(
+        data: ThemeData.light().copyWith(
+          textSelectionTheme: TextSelectionThemeData(
+            selectionColor: activeColor,
+            cursorColor: activeColor,
+            selectionHandleColor: activeColor,
           ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: borderRadius ?? BorderRadius.circular(12),
-            borderSide: const BorderSide(
-              color: Colors.black,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: borderRadius ?? BorderRadius.circular(12),
-            borderSide: BorderSide(
-              color: (controller.text == '' ? inactiveColor : activeColor) ??
-                  Colors.grey,
-            ),
-          ),
-          counterText: "",
         ),
-        onChanged: (value) {
-          if (value.isDigit()) {
-            onChanged(value);
-            if (value != '') {
-              if (onCompleted != null) onCompleted!();
+        child: TextField(
+          controller: controller,
+          style: textStyle,
+          cursorColor: activeColor,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: borderRadius ?? BorderRadius.circular(12),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: borderRadius ?? BorderRadius.circular(12),
+              borderSide: const BorderSide(
+                color: Colors.black,
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: borderRadius ?? BorderRadius.circular(12),
+              borderSide: BorderSide(
+                color: (controller.text == '' ? inactiveColor : activeColor) ??
+                    Colors.grey,
+              ),
+            ),
+            counterText: "",
+          ),
+          onChanged: (value) {
+            if (value.isDigit()) {
+              onChanged(value);
+              if (value != '') {
+                if (onCompleted != null) onCompleted!();
+              }
+            } else {
+              controller.text = '';
+              if (onRemoved != null) onRemoved!();
             }
-          } else {
-            controller.text = '';
-            if (onRemoved != null) onRemoved!();
-          }
-        },
-        focusNode: focusNode,
-        maxLength: 1,
-        keyboardType: TextInputType.number,
+          },
+          focusNode: focusNode,
+          maxLength: 1,
+          keyboardType: TextInputType.number,
+        ),
       ),
     );
   }
